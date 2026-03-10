@@ -31,10 +31,10 @@ Source: [Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
 ```
 customers ─────────────────────────────────────────┐
-  customer_id (PK)                                  │
-  customer_unique_id                                │
-  customer_city, customer_state                     │
-                                                    │
+  customer_id (PK)                                 │
+  customer_unique_id                               │
+  customer_city, customer_state                    │
+                                                   │
 orders ────────────────────────────────────────────┘
   order_id (PK)                        customer_id (FK)
   order_status
@@ -105,17 +105,17 @@ orders ────────────────────────�
 
 | Technique | Used in Queries |
 |---|---|
-| GROUP BY + COUNT/SUM/AVG | Q1, Q2, Q3, Q4 |
-| Multi-table JOIN | Q2, Q5, Q6, Q7 |
-| CASE WHEN | Q8, Q10, Q14, Q15 |
+| GROUP BY + COUNT/SUM/AVG | Q1, Q2, Q3, Q4, Q15 |
+| Multi-table JOIN | Q2, Q5, Q6, Q7, Q15 |
+| CASE WHEN | Q8, Q10, Q14 |
 | Scalar Subquery | Q9 |
 | Nested Subquery with aggregation | Q10 |
 | SUM() OVER (running total) | Q11 |
 | RANK() OVER (PARTITION BY) | Q12 |
 | AVG() OVER (ROWS BETWEEN) | Q13 |
-| NTILE() window function | Q14, Q15 |
+| NTILE() window function | Q14 |
 | CTE (WITH clause) | Q12, Q14, Q15 |
-| Date functions (strftime, julianday) | Q1, Q8, Q11, Q13, Q14 |
+| Date functions (strftime, julianday) | Q1, Q8, Q11, Q13, Q14, Q15 |
 | COALESCE for null handling | Q2, Q6, Q10 |
 
 ---
@@ -146,7 +146,9 @@ olist-sql-analysis/
 ## How to Run
 
 ```bash
-# 1. Clone or download this repository
+# 1. Clone the repository
+git clone https://github.com/Herman-Liepieshko/olist-sql-analysis.git
+cd olist-sql-analysis
 
 # 2. Install dependencies
 pip install -r requirements.txt
